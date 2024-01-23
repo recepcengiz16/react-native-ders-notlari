@@ -1,10 +1,26 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View,Button,FlatList } from 'react-native'
+import React,{useState} from 'react'
 
 export default function BoxScreen() {
+    const [colors, setColors] = useState([]);
+    const randomColor = ()=>{
+        const red=Math.floor(Math.random()*256);
+        const green=Math.floor(Math.random()*256);
+        const blue=Math.floor(Math.random()*256);
+        return `rgb(${red},${green},${blue})`;
+    }
   return (
     <View>
-      <Text>BoxScreen</Text>
+      <Button title='Kutu Ekle' onPress={()=>{
+         setColors([...colors,randomColor()])
+      }} />
+
+      <FlatList
+      data={colors}
+      renderItem={({item})=>{
+        return <View style={{height:80,width:80,backgroundColor:item,marginVertical:20}} />
+      }}
+      />
     </View>
   )
 }
