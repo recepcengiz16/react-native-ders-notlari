@@ -7,6 +7,7 @@ export default function HomeScreen({navigation}) {
       <Text>Ana Sayfa</Text>
 
       <Button title='Sayaç' onPress={()=>navigation.navigate("Sayaç")} />
+      <Button title='Sayaç' onPress={()=>navigation.navigate("Kutu")} />
     </View>
   )
 }
