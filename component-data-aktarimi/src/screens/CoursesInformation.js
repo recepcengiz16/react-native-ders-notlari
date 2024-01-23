@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import Information from '../../components/Information'
 
 export default function CoursesInformation() {
   return (
     <View>
-      <Text>CoursesInformation</Text>
+        <Information></Information>
     </View>
   )
 }
