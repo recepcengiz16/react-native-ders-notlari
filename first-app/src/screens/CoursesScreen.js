@@ -22,6 +22,7 @@ export default function CoursesScreen() {
         renderItem={({item})=> {
           return <Text> {item.name} </Text>
         }}
+        //renderItem prop'undaki fonksiyon, her eleman için çağrıldığında o elemanı temsil eden bir nesne alır. Bu nesne, genellikle süslü parantez içine alınarak nesnenin özelliklerine daha kolay erişim sağlar. Bu nedenle, renderItem={({ item }) => ...} şeklinde kullanılır. renderItemdan kaynaklanan bir şey yani bu
         keyExtractor={(item)=>item.id} 
         />
     </View>
