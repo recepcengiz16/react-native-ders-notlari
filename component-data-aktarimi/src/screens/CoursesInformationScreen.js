@@ -2,7 +2,7 @@ import { ScrollView, StyleSheet} from 'react-native'
 import React from 'react'
 import Information from '../../components/Information'
 
-export default function CoursesInformation() {
+export default function CoursesInformationScreen() {
     return (
       <ScrollView> 
         {/* normal view de ekranı aşağı kaydıramıyorsun. scrollview ile kaydırmana olanak sağlanmış oluyor. */} 
