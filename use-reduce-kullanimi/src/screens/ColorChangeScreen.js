@@ -4,13 +4,18 @@ import ColorChange from '../../components/ColorChange'
 
 
 const reducer = (state,action)=>{
-    switch (action.type) {
-        case 'changeRed':
-            return state.red +action.payLoad >255 || state.red + action.payLoad < 0  ? state : {...state,red:state.red+action.payLoad}   
-            
     
-        default:
-            break;
+    switch (action.type) {
+    
+        case 'changeRed':
+            return state.red +action.payLoad >255 || state.red + action.payLoad < 0  ? state : {...state, red:state.red+action.payLoad} 
+
+        case 'changeBlue':
+            return state.blue +action.payLoad >255 || state.blue + action.payLoad < 0  ? state : {...state, blue:state.blue+action.payLoad}  
+        
+        case 'changeGreen':
+            return state.green +action.payLoad >255 || state.green + action.payLoad < 0  ? state : {...state, green:state.green+action.payLoad}        
+       
     }
 }
 
@@ -34,6 +39,8 @@ export default function ColorChangeScreen() {
             onIncrease={()=>dispatch({type:'changeGreen', payLoad:20})} 
             onDecrease={()=>dispatch({type:'changeGreen', payLoad:-20})}
         />
+
+        <View style={{height:150,width:150,backgroundColor:`rgb(${state.red},${state.green},${state.blue})`}} />
         
     </View>
   )
