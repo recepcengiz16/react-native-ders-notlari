@@ -37,7 +37,7 @@ export default function CounterScreen() {
       <Text> Sayaç: {state.count} </Text>
 
       <Button title='Artır' onPress={()=>{
-        dispatch({type:'increment', payload:1}) //type increment olunca 1 artırma işlemi yapıcaz. dispatch ile de o actionu veriyoruz.
+        dispatch({type:'increment', payload:1}) //type increment olunca 1 artırma işlemi yapıcaz. dispatch ile de o actionu verdiğimiz fonksiyon.
       }} />
 
       <Button title='Azalt' onPress={()=>{
