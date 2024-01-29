@@ -5,8 +5,8 @@ export default function HomeScreen({navigation}) {
   return (
     <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
       <Text> Ana Sayfa </Text>
-      <Button onPress={()=> navigation.navigate("Sayaç") } title='Sayfaya Git' />
-      <Button onPress={()=> navigation.navigate("Renk Değiştirme") } title='Sayfaya Git' />
+      <Button onPress={()=> navigation.navigate("Sayaç") } title='Sayaç' />
+      <Button onPress={()=> navigation.navigate("Renk Değiştirme") } title='Renk Değiştirme' />
     </View>
   )
 }
