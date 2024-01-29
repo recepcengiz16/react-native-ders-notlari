@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen';
 import CounterScreen from './src/screens/CounterScreen';
+import ColorChangeScreen from './src/screens/ColorChangeScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,6 +14,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Ana Sayfa">
         <Stack.Screen name="Ana Sayfa" component={HomeScreen} />
         <Stack.Screen name="Sayaç" component={CounterScreen} />
+        <Stack.Screen name="Renk Değiştirme" component={ColorChangeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
