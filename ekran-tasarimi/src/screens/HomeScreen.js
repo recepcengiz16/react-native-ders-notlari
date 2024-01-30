@@ -6,7 +6,7 @@ export default function HomeScreen() {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
       <Button
-        title="Go to Details"
+        title="Ekran Tasarımına Git"
         onPress={() => navigation.navigate('Ekran Tasarımı')}
       />
     </View>
