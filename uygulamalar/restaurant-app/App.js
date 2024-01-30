@@ -6,11 +6,12 @@ import SearchScreen from "./screens/SearchScreen"
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+export default function App() { // screenOptions da headerTitle tüm sayfalarda aynı başlığı verir. O da mesela uygulamanın adı olabilir
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Arama Ekranı" component={SearchScreen} />
+      <Stack.Navigator initialRouteName="Search" screenOptions={{headerTitle:"Yazılımcı Dostlar Restoranları"}}>
+        
+        <Stack.Screen name="Search" component={SearchScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
