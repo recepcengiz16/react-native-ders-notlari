@@ -3,8 +3,13 @@ import React from 'react'
 
 export default function HomeScreen({navigation}) {
   return (
-    <View>
-      <Text>HomeScreen</Text>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Ana Sayfa</Text>
+      <Button
+        title="Şifre Sayfasına Git"
+        
+        onPress={() => navigation.navigate('Şifre')}
+      />
     </View>
   )
 }
