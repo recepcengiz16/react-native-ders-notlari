@@ -1,12 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import HomeScreen from './src/screens/HomeScreen';
+import DesignScreen from './src/screens/DesignScreen';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Ana Sayfa">
+        <Stack.Screen name="Ana Sayfa" component={HomeScreen} />
+        <Stack.Screen name="Ekran Tasarımı" component={DesignScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
