@@ -4,7 +4,7 @@ import React from 'react'
 export default function DesignScreen() {
   return (
     <View>
-      <Text>DesignScreen</Text>
+       <View style={{width:50,height:50,backgroundColor:"red"}} />
     </View>
   )
 }
