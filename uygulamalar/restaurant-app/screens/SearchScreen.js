@@ -6,7 +6,7 @@ import ResultList from '../components/ResultList';
 
 export default function SearchScreen() {
 
-  const [searchApi,results] = useResults();
+  const [searchApi,results,errorMessage] = useResults();
   const [term, setTerm] = useState("")
 
   const filterResultsByPrice = (price)=>{
@@ -18,9 +18,25 @@ export default function SearchScreen() {
   return (
     <View>
       <SearchBar term={term} onTermChange={setTerm} onTermSubmit={()=>searchApi(term)} />
-      <ResultList title="Ucuz Restoranlar" result={filterResultsByPrice("₺")} />
-      <ResultList title="Uygun Restoranlar" result={filterResultsByPrice("₺₺")} />
-      <ResultList title="Pahalı Restoranlar" result={filterResultsByPrice("₺₺₺")} />
+
+      {errorMessage ? <Text>{errorMessage}</Text>:
+       <>
+      
+          { results.length == 0 ? ( <></> ) : 
+            (  <>  
+                <ResultList title="Ucuz Restoranlar" result={filterResultsByPrice("₺")} />
+                <ResultList title="Uygun Restoranlar" result={filterResultsByPrice("₺₺")} />
+                <ResultList title="Pahalı Restoranlar" result={filterResultsByPrice("₺₺₺")} />
+              </>
+            ) } 
+      
+      </>
+      
+      }
+
+    
+
+     
     </View>
   )
 }
