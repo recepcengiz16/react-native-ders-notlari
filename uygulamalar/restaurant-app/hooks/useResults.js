@@ -27,13 +27,7 @@ export default function() {
 
     useEffect(()=>{//useEffect her render işleminden sonra çalışan bir fonksiyondur.
         
-        const fetchData = async () => { //neden async fonks. değişken içinde yazıp çağırdık çünkü async fonks useeffect içinde direk çağıramıyorsun o yüzden
-            await searchApi("Kebap");
-          };
-      
-        fetchData();
-
-        //searchApi("Toast");
+        searchApi("Toast");
 
         // Eğer temizleme işlemi yapmamız gerekiyorsa (clean-up), bu işlemi return fonksiyonu içinde gerçekleştirebilirsiniz.
         // return () => {
