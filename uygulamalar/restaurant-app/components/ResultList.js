@@ -4,10 +4,11 @@ import ResultDetail from './ResultDetail'
 
 export default function ResultList({title,result}) {
   return (
-    <View>
-      <Text>{title}</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>{title}</Text>
       <FlatList
-      data={result}
+      horizontal
+      showsHorizontalScrollIndicator={false}
       renderItem={({item})=>{
         return (
             <TouchableOpacity>
@@ -20,4 +21,14 @@ export default function ResultList({title,result}) {
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container:{
+        marginBottom:10
+    },
+    title:{
+        fontSize:18,
+        fontWeight:"bold",
+        marginLeft:15,
+        marginBottom:5
+    }
+})
