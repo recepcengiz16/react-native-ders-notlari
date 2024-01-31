@@ -24,7 +24,7 @@ export default function ResultList({title,result}) {
 
 const styles = StyleSheet.create({
     container:{
-        marginBottom:10
+        marginVertical:15
     },
     title:{
         fontSize:18,
