@@ -4,6 +4,7 @@ import yelp from "../api/yelp"
 export default function() {
 
     const [results, setResults] = useState([]);
+    const [errorMessage, setErrorMessage] = useState("");
     const searchApi = async (searchTerm)=>{
 
         try {
@@ -17,10 +18,11 @@ export default function() {
         
             console.log("API Response:", response.data);
             setResults(response.data.businesses);
-
+            setErrorMessage("");
           } 
           catch (error) {
             console.error("API Call Error:", error);
+            setErrorMessage("Hata mesajı");
           }
     }
 
@@ -36,5 +38,5 @@ export default function() {
 
     },[]); //useEffect kullanımında eğer bir değişkenin değeri değiştiğinde bir işlem yapmak istiyorsak o zaman bu dizinin içinde o değişkeni yazmalıyız. Yoksa her render sonrasında çalışır. Boş dizi olunca da sadece bir kez çalışır. Hiç bir şey olmazsa 2. parametrede, her render edildiğinde çalışır. Dizinin içinde değer olursa o değer değiştiğinde çalışır useEffect içerisindeki değer
 
-    return [searchApi,results]; //dışarıda da aramayı kullanabilmek için searchApiyi açtık.
+    return [searchApi,results,errorMessage]; //dışarıda da aramayı kullanabilmek için searchApiyi açtık.
 }
