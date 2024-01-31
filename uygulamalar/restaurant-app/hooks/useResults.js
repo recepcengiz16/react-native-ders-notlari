@@ -34,7 +34,7 @@ export default function() {
         //     console.log("useEffect temizleme işlemi");
         // };
 
-    },[]); //useEffect kullanımında eğer bir değişkenin değeri değiştiğinde bir işlem yapmak istiyorsak o zaman bu dizinin içinde o değişkeni yazmalıyız. Yoksa her render sonrasında çalışır. 
+    },[]); //useEffect kullanımında eğer bir değişkenin değeri değiştiğinde bir işlem yapmak istiyorsak o zaman bu dizinin içinde o değişkeni yazmalıyız. Yoksa her render sonrasında çalışır. Boş dizi olunca da sadece bir kez çalışır. Hiç bir şey olmazsa 2. parametrede, her render edildiğinde çalışır. Dizinin içinde değer olursa o değer değiştiğinde çalışır useEffect içerisindeki değer
 
     return [searchApi,results]; //dışarıda da aramayı kullanabilmek için searchApiyi açtık.
 }
