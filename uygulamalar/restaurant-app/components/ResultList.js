@@ -8,6 +8,7 @@ export default function ResultList({title,result}) {
       <Text style={styles.title}>{title}</Text>
       <FlatList
       horizontal
+      data={result}
       showsHorizontalScrollIndicator={false}
       renderItem={({item})=>{
         return (
