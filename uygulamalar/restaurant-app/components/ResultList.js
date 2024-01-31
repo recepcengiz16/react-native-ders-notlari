@@ -5,9 +5,8 @@ import {useNavigation} from "@react-navigation/native"
 
 
 export default function ResultList({title,result}) {
-
     const navigation=useNavigation();
-
+    
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
@@ -16,8 +15,9 @@ export default function ResultList({title,result}) {
       data={result}
       showsHorizontalScrollIndicator={false}
       renderItem={({item})=>{
+        console.log("item",item)
         return (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={ () => navigation.navigate("ResultsShow",{id:item.id})}>
                 <ResultDetail result={item} />
             </TouchableOpacity>
         )
