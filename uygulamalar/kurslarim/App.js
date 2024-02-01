@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,Button } from 'react-native';
 import { useState } from 'react';
+import CourseInput from './components/CourseInput';
 
 export default function App() {
 
@@ -15,6 +16,8 @@ export default function App() {
       <StatusBar style="light" />
       <View style={styles.container}>
         <Button title='Kurs Ekle' color="purple" onPress={startModal} />
+
+        <CourseInput visible={modalIsVisible} />
       </View>
     </>
   );
