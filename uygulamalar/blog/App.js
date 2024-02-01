@@ -8,9 +8,9 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerTitle : `Foster'ın Hayali Dostlar Mekanı` }}>
+      <Stack.Navigator  screenOptions={{ headerTitle : `Foster'ın Hayali Dostlar Mekanı` }}>
+        <Stack.Screen name="Index" component={HomeScreen} />    
         <Stack.Screen name="Create" component={CreateScreen} />    
-        <Stack.Screen name="Home" component={HomeScreen} />    
       </Stack.Navigator>
     </NavigationContainer>
   );
