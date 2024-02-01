@@ -6,10 +6,20 @@ import CourseInput from './components/CourseInput';
 export default function App() {
 
   const [modalIsVisible, setModalIsVisible] = useState(false)
+  
   const startModal = ()=>{
     setModalIsVisible(true);
   }
 
+  const endModal = ()=>{
+    setModalIsVisible(false);
+  }
+
+  const addCourse = (courseTitle)=>{
+
+    endModal();
+
+  }
 
   return (
     <>
@@ -17,7 +27,7 @@ export default function App() {
       <View style={styles.container}>
         <Button title='Kurs Ekle' color="purple" onPress={startModal} />
 
-        <CourseInput visible={modalIsVisible} />
+        <CourseInput visible={modalIsVisible} onAddCourse={addCourse} onCancel={endModal}/>
       </View>
     </>
   );
