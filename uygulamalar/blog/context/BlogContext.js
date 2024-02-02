@@ -7,3 +7,5 @@ export const BlogProvider = ({children})=>{
         {children}
     </BlogContext.Provider>
 }
+
+export default BlogContext;
