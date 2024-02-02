@@ -8,7 +8,7 @@ export default function HomeScreen() {
 
   return (
     <View>
-      <Text>HomeScreen</Text>
+      <Text>HomeScreen {value}</Text>
     </View>
   )
 }

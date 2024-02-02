@@ -3,7 +3,10 @@ import React from "react";
 const BlogContext = React.createContext();
 
 export const BlogProvider = ({children})=>{
-    return <BlogContext.Provider value={10}>
+
+    const blogPosts=[{title:"React Native"},{title:"Javascript"}]
+
+    return <BlogContext.Provider value={blogPosts}>
         {children}
     </BlogContext.Provider>
 }
