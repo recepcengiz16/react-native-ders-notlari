@@ -3,14 +3,14 @@ import React,{useContext} from 'react'
 import { Context } from '../context/BlogContext'
 import BlogPostForm from '../components/BlogPostForm'
 
-export default function CreateScreen() {
+export default function CreateScreen({navigation}) {
 
   const {addBlogPost} = useContext(Context); 
 
   return (
     <View>
      <BlogPostForm onSubmit={(title,content)=>{
-        addBlogPost(title,content)
+        addBlogPost(title,content,()=>navigation.navigate("Index"))
      }} />
     </View>
   )
