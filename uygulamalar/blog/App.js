@@ -6,6 +6,7 @@ import ShowScreen from './screens/ShowScreen';
 import { Provider } from './context/BlogContext';
 import { TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+import EditScreen from './screens/EditScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,8 +25,11 @@ export default function App() {
               </TouchableOpacity>
             )
           })} />    
+          
           <Stack.Screen name="Create" component={CreateScreen} />    
           <Stack.Screen name="Show" component={ShowScreen} />    
+          <Stack.Screen name="Edit" component={EditScreen} />    
+
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
