@@ -7,7 +7,11 @@ const blogReducer = (state,action)=>{
     switch (action.type) {
         case "add_blogpost":
             
-            return [...state,{title:"Angular"}]
+            return [...state,
+                {
+                    id:Math.floor(Math.random()*999999),
+                    title:"Angular"
+                }]
     
         default:
             return state;
