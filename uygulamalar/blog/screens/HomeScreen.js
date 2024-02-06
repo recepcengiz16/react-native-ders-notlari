@@ -10,14 +10,13 @@ export default function HomeScreen() {
 
   return (
     <View>
-      <Text>HomeScreen </Text>
       <Button title='Ekle' onPress={addBlogPost}/>
       <FlatList
       data={state}
       renderItem={({item})=>{
         return (
           <View style={styles.row}>
-            <Text>{item.title}</Text>
+            <Text style={styles.title}>{item.title}</Text>
             <Feather name="trash" size={24} color="black" />
           </View>
         )
@@ -32,6 +31,12 @@ const styles = StyleSheet.create({
   row:{
     flexDirection:"row",
     justifyContent:"space-between",
-    borderTopWidth:1
+    borderTopWidth:1,
+    paddingHorizontal:10,
+    paddingVertical:20,
+    borderColor:"gray"
+  },
+  title:{
+    fontSize:18
   }
 })
