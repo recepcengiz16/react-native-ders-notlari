@@ -1,10 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../context/BlogContext'
 
-export default function ShowScreen() {
+export default function ShowScreen({route}) {
+
+    const {state} = useContext(Context);
+
+    const blogPost = state.find((blogPost)=>blogPost.id === route.params.id );
+    
   return (
     <View>
-      <Text>ShowScreen</Text>
+      <Text>{blogPost.title}</Text>
     </View>
   )
 }
