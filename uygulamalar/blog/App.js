@@ -4,15 +4,26 @@ import HomeScreen from './screens/HomeScreen';
 import CreateScreen from './screens/CreateScreen';
 import ShowScreen from './screens/ShowScreen';
 import { Provider } from './context/BlogContext';
+import { TouchableOpacity } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
 
 const Stack = createNativeStackNavigator();
 
+
+//header right da index sayfasında sağda demek burada da sağda + iconu yani ekleme iconu mevcut
 export default function App() {
   return ( //providerı kapsayıcı olarak yazdık çünkü data alışverişinde her sayfada kullanılabilmesi için
     <Provider> 
       <NavigationContainer>
         <Stack.Navigator  screenOptions={{ headerTitle : `Foster'ın Hayali Dostlar Mekanı` }}>
-          <Stack.Screen name="Index" component={HomeScreen} />    
+          
+          <Stack.Screen name="Index" component={HomeScreen} options={({navigation})=>({
+            headerRight:()=>(
+              <TouchableOpacity onPress={()=>navigation.navigate("Create")}>
+                  <AntDesign name="plus" size={24} color="black" />
+              </TouchableOpacity>
+            )
+          })} />    
           <Stack.Screen name="Create" component={CreateScreen} />    
           <Stack.Screen name="Show" component={ShowScreen} />    
         </Stack.Navigator>
