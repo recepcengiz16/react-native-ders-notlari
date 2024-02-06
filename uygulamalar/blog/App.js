@@ -7,6 +7,8 @@ import { Provider } from './context/BlogContext';
 import { TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import EditScreen from './screens/EditScreen';
+import { EvilIcons } from '@expo/vector-icons';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -27,7 +29,16 @@ export default function App() {
           })} />    
           
           <Stack.Screen name="Create" component={CreateScreen} />    
-          <Stack.Screen name="Show" component={ShowScreen} />    
+          <Stack.Screen name="Show" component={ShowScreen} 
+            options={({navigation})=>({
+              headerRight:()=>(
+                <TouchableOpacity onPress={()=>navigation.navigate("Edit")}>
+                    <EvilIcons name="pencil" size={34} color="black" />
+                </TouchableOpacity>
+              )
+            })}
+          
+          />    
           <Stack.Screen name="Edit" component={EditScreen} />    
 
         </Stack.Navigator>
