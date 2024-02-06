@@ -23,8 +23,11 @@ const blogReducer = (state,action)=>{
 }
 
 const addBlogPost = (dispatch)=>{
-    return (title,content)=>{
-        dispatch({type:"add_blogpost",payLoad:{title,content}})
+    return (title,content, callBack )=>{
+        dispatch({type:"add_blogpost",payLoad:{title,content}});
+        if (callBack) {
+            callBack();
+        }
     }
 }
 
