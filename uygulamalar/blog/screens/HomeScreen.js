@@ -10,7 +10,7 @@ export default function HomeScreen({navigation}) {
 
   return (
     <View>
-      <Button title='Ekle' onPress={addBlogPost}/>
+      {/* <Button title='Ekle' onPress={addBlogPost}/> */}
       <FlatList
       data={state}
       renderItem={({item})=>{
