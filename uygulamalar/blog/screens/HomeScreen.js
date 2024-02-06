@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,FlatList,Button } from 'react-native'
+import { StyleSheet, Text, View,FlatList,Button,TouchableOpacity } from 'react-native'
 import React,{useContext} from 'react'
 import {Context} from '../context/BlogContext'
 import { Feather } from '@expo/vector-icons';
@@ -6,7 +6,7 @@ import { Feather } from '@expo/vector-icons';
 
 export default function HomeScreen() {
 
-  const {state,addBlogPost}=useContext(Context); //value değerini blogcontexdeki gönderdiğim value değerinden alıyorum useContextt içerisinde
+  const {state,addBlogPost,deleteBlogPost}=useContext(Context); //value değerini blogcontexdeki gönderdiğim value değerinden alıyorum useContextt içerisinde
 
   return (
     <View>
@@ -17,11 +17,13 @@ export default function HomeScreen() {
         return (
           <View style={styles.row}>
             <Text style={styles.title}>{item.title}</Text>
-            <Feather name="trash" size={24} color="black" />
+            <TouchableOpacity onPress={()=>deleteBlogPost(item.id)}>
+              <Feather name="trash" size={24} color="black" />
+            </TouchableOpacity>
           </View>
         )
       }}
-      keyExtractor={item=>item.title}
+      keyExtractor={(item)=>item.id}
       />
     </View>
   )

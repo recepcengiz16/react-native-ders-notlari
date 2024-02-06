@@ -11,7 +11,10 @@ const blogReducer = (state,action)=>{
                 {
                     id:Math.floor(Math.random()*999999),
                     title:"Angular"
-                }]
+                }];
+        
+        case "delete_blogpost":
+            return state.filter((blogPost)=>blogPost.id !== action.payLoad ) //state dediğimiz blogPost arrayi
     
         default:
             return state;
@@ -24,5 +27,11 @@ const addBlogPost = (dispatch)=>{
     }
 }
 
+const deleteBlogPost = (dispatch)=>{
+    return (id)=>{
+        dispatch({type:"delete_blogpost",payLoad:id})
+    }
+}
 
-export const {Context,Provider} = createDataContext(blogReducer,{addBlogPost},[]); //burada generic oluşturduğumuz contexti çağırıp contexti oluşturuyoruz.
+
+export const {Context,Provider} = createDataContext(blogReducer,{addBlogPost,deleteBlogPost},[]); //burada generic oluşturduğumuz contexti çağırıp contexti oluşturuyoruz.
