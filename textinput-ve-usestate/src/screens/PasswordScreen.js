@@ -10,7 +10,7 @@ export default function PasswordScreen() {
       <TextInput 
         style={styles.input}
         autoCapitalize='none' 
-        autoCorrect={false}
+        autoCorrect={false} // tahmini kapatmaya yarıyor.
         value={password} //onchange ile passwordun yeni değeri elde edilmiş oluyor ve ekrana basarken de value ile yeni değeri alıyoruz
         onChangeText={(newValue)=>{setPassword(newValue)}}
       /> 
