@@ -1,16 +1,22 @@
 import { StyleSheet, Text, View,KeyboardAvoidingView,TextInput, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React,{useState} from 'react'
 
 export default function LoginScreen() {
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState(""); //secureTextEntry de şifreyi gizlemeye yarıyor 
+
+
   return (//text inputa tıklayınca klavye textinputların üzerine gelmesin otomatik kaydırma yapsın diye var KeyboardAvoidingView
     <KeyboardAvoidingView
         style={styles.container}
         behavior='padding' //paddinge göre otomatik ayarlama yapıyor behavior da padding yazınca.
     >
         <View style={styles.inputContainer}>
-            <TextInput style={styles.input} placeholder='E Mail' />
-            <TextInput style={styles.input} placeholder='Şifre' />
+            <TextInput style={styles.input} placeholder='E Mail' value={email} onChangeText={(newValue)=>setEmail(newValue)} />
+            <TextInput style={styles.input} placeholder='Şifre'  value={password} onChangeText={(newValue)=>setEmail(newValue)} secureTextEntry/> 
         </View>
+
         <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button}>
                 <Text style={styles.buttonText}>Giriş Yap</Text>
@@ -19,6 +25,7 @@ export default function LoginScreen() {
                 <Text style={styles.outlineButtonText}>Kayıt Ol</Text>
             </TouchableOpacity>
         </View>
+
     </KeyboardAvoidingView>
   )
 }
