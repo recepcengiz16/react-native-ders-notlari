@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
 import React,{useState} from 'react'
 
-export default function BlogPostForm({onSubmit}) {
+export default function BlogPostForm({onSubmit,initialValue}) {
 
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
+    const [title, setTitle] = useState(initialValue ? initialValue.title : "" );
+    const [content, setContent] = useState( initialValue ? initialValue.content : "");
 
   return (
     <View style={styles.main}>
