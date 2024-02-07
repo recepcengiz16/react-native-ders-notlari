@@ -5,13 +5,19 @@ import BlogPostForm from "../components/BlogPostForm"
 
 export default function EditScreen({route}) {
 
-    const {state} = useContext(Context);
-
+    const {state,editBlogPost} = useContext(Context);
+    const id=route.params.id;
     const blogPost = state.find((blogPost)=>blogPost.id === route.params.id );
 
   return (
     <View>
-      <BlogPostForm isEditable={true} initialValue={{title:blogPost.title,content:blogPost.content}}/>
+      <BlogPostForm 
+        isEditable={true} 
+        initialValue={{title:blogPost.title,content:blogPost.content}}
+        onSubmit={(title,content)=>{
+          editBlogPost(id,title,content,()=>navigation.navigate("Index"))
+        }}
+      />
     </View>
   )
 }
