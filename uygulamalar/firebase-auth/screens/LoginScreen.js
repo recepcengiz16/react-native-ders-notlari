@@ -1,14 +1,46 @@
 import { StyleSheet, Text, View,KeyboardAvoidingView,TextInput, TouchableOpacity } from 'react-native'
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {auth} from "../firebase"
+import { useNavigation } from '@react-navigation/native';
 
 export default function LoginScreen() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState(""); //secureTextEntry de şifreyi gizlemeye yarıyor 
 
+    const navigation = useNavigation();
+
+    useEffect(() => {
+      
+        auth.onAuthStateChanged(user=>{
+            if (user) { //Eğer kullanıcı varsa
+                navigation.navigate("Home");
+            }
+        })
+
+
+    }, [])
+    
+
+    const handleLogin = ()=>{
+        auth.signInWithEmailAndPassword(email,password).then(userCredentials =>{
+            const user = userCredentials.user;
+        })
+        .catch((error)=>{
+            alert(error.message);
+        })
+        ;
+    }
+
+
     const handleSignUp = ()=>{
-        auth
+        auth.createUserWithEmailAndPassword(email,password).then(userCredentials => {
+            const user = userCredentials.user;
+        })
+        .catch((error)=>{
+            alert(error.message);
+        })
+        ; //auth üzerinden email ve password ile kayıt olmayı sağlıyor firebase e
     }
 
   return (//text inputa tıklayınca klavye textinputların üzerine gelmesin otomatik kaydırma yapsın diye var KeyboardAvoidingView
@@ -22,7 +54,7 @@ export default function LoginScreen() {
         </View>
 
         <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={handleLogin}>
                 <Text style={styles.buttonText}>Giriş Yap</Text>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.button,styles.outlineButton]} onPress={handleSignUp}>
