@@ -8,10 +8,10 @@ import LoginScreen from './screens/LoginScreen';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return ( //böyle olunca sıralamada ilk login olacağı için login sayfası açılacak
+  return ( //böyle olunca sıralamada ilk login olacağı için login sayfası açılacak, headershown yukarıda başlığı göstermiyor
     <NavigationContainer>
       <Stack.Navigator>  
-        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} options={{headerShown:false}} />
         <Stack.Screen name="Home" component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
