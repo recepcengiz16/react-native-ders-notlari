@@ -14,6 +14,11 @@ const blogReducer = (state,action)=>{
                     content: action.payLoad.content
                 }];
         
+        case "edit_blogpost":
+            return state.map((blogPost)=>{
+                return blogPost.id === action.payLoad.id ? action.payLoad : blogPost;
+            })
+
         case "delete_blogpost":
             return state.filter((blogPost)=>blogPost.id !== action.payLoad ) //state dediğimiz blogPost arrayi
     
@@ -31,6 +36,15 @@ const addBlogPost = (dispatch)=>{
     }
 }
 
+const editBlogPost = (dispatch)=>{
+    return (id,title,content, callBack )=>{
+        dispatch({type:"edit_blogpost",payLoad:{id,title,content}});
+        if (callBack) {
+            callBack();
+        }
+    }
+}
+
 const deleteBlogPost = (dispatch)=>{
     return (id)=>{
         dispatch({type:"delete_blogpost",payLoad:id})
@@ -38,4 +52,4 @@ const deleteBlogPost = (dispatch)=>{
 }
 
 
-export const {Context,Provider} = createDataContext(blogReducer,{addBlogPost,deleteBlogPost},[]); //burada generic oluşturduğumuz contexti çağırıp contexti oluşturuyoruz.
+export const {Context,Provider} = createDataContext(blogReducer,{addBlogPost,editBlogPost,deleteBlogPost},[]); //burada generic oluşturduğumuz contexti çağırıp contexti oluşturuyoruz.
