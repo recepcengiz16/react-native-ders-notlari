@@ -22,4 +22,4 @@ if(!firebase.apps.length){ // eğer firebase içerisinde app yoksa, her seferind
 
 const auth=firebase.auth(); 
 //firebase auth dışarı açmamız lazım
-export default {auth};
+export {auth};

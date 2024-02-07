@@ -1,11 +1,15 @@
 import { StyleSheet, Text, View,KeyboardAvoidingView,TextInput, TouchableOpacity } from 'react-native'
 import React,{useState} from 'react'
+import {auth} from "../firebase"
 
 export default function LoginScreen() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState(""); //secureTextEntry de şifreyi gizlemeye yarıyor 
 
+    const handleSignUp = ()=>{
+        auth
+    }
 
   return (//text inputa tıklayınca klavye textinputların üzerine gelmesin otomatik kaydırma yapsın diye var KeyboardAvoidingView
     <KeyboardAvoidingView
@@ -14,14 +18,14 @@ export default function LoginScreen() {
     >
         <View style={styles.inputContainer}>
             <TextInput style={styles.input} placeholder='E Mail' value={email} onChangeText={(newValue)=>setEmail(newValue)} />
-            <TextInput style={styles.input} placeholder='Şifre'  value={password} onChangeText={(newValue)=>setEmail(newValue)} secureTextEntry/> 
+            <TextInput style={styles.input} placeholder='Şifre'  value={password} onChangeText={(newValue)=>setPassword(newValue)} secureTextEntry/> 
         </View>
 
         <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button}>
                 <Text style={styles.buttonText}>Giriş Yap</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.button,styles.outlineButton]}>
+            <TouchableOpacity style={[styles.button,styles.outlineButton]} onPress={handleSignUp}>
                 <Text style={styles.outlineButtonText}>Kayıt Ol</Text>
             </TouchableOpacity>
         </View>
