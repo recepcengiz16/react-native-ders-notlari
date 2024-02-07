@@ -11,7 +11,7 @@ export default function EditScreen({route}) {
 
   return (
     <View>
-      <BlogPostForm initialValue={{title:blogPost.title,content:blogPost.content}}/>
+      <BlogPostForm isEditable={true} initialValue={{title:blogPost.title,content:blogPost.content}}/>
     </View>
   )
 }

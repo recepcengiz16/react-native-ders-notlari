@@ -9,7 +9,9 @@ export default function CreateScreen({navigation}) {
 
   return (
     <View>
-     <BlogPostForm onSubmit={(title,content)=>{
+     <BlogPostForm
+      isEditable={false}
+      onSubmit={(title,content)=>{
         addBlogPost(title,content,()=>navigation.navigate("Index"))
      }} />
     </View>
