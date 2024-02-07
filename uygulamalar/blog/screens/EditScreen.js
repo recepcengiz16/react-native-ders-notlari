@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useContext } from 'react'
 import { Context } from '../context/BlogContext'
+import BlogPostForm from "../components/BlogPostForm"
 
 export default function EditScreen({route}) {
 
@@ -10,7 +11,7 @@ export default function EditScreen({route}) {
 
   return (
     <View>
-      <Text>EditScreen</Text>
+      <BlogPostForm initialValue={{title:blogPost.title,content:blogPost.content}}/>
     </View>
   )
 }
