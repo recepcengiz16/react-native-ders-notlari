@@ -11,7 +11,15 @@ export default function App() {
 
   //React navigation ile sayfalar arası geçiş yapabiliyoruz. reactnavigation.org sitesini incelemelisin. npm install @react-navigation/native ilk bunu kuruyoruz sonra da npm install @react-navigation/native-stack bunu kurmamız lazım. Daha sonra da ek olarak npx expo install react-native-screens react-native-safe-area-context bunu da kurmamız lazım
 
-  //react native cross platformdur ve çalışma mantığı işletim sistemi üzerine kurulu js motoru tarafından direk kodlar iletilir işletim sistemine. Yani arada bir köprü var gibi düşünebilirsin. Native de de uygulama da bir aksiyon aldığında önce js motoruna sonra işletim sistemine gider ve orada derlenir
+  //react native cross platformdur ve çalışma mantığı işletim sistemi üzerine kurulu js motoru tarafından direk kodlar iletilir işletim sistemine. Yani arada bir köprü var gibi düşünebilirsin. Native de de uygulama da bir aksiyon aldığında önce js motoruna sonra işletim sistemine gider ve orada derlenir. 
+
+  /* Derleme zamanında 3 ana iş mevcut. 3 tane thread e ayrılıyor. UI Thread, JS Thread ve Native Thread
+    UI Thread => Ekranda gördüğümüz her bir bileşeni kontrol eden thread (input,image)
+    JS Thread => Kod zamanında geliştirdiğimiz tüm işlemlerden sorumlu. Obje tanımladık, js işlemi gerçekleştirdik vs gibi
+    Native Thread => telefonun kendine ait yerel tüm bileşenlerine erişim sağlayabildiğimiz yer
+
+    Bu üçünü birleştirdiğimğiz yapıya ne ad veriyoruz. React Native Bridge denilmektedir. 
+  */
   
   const message="Javascript";
   const courses = [
