@@ -10,6 +10,8 @@ const Stack = createNativeStackNavigator();
 export default function App() {
 
   //React navigation ile sayfalar arası geçiş yapabiliyoruz. reactnavigation.org sitesini incelemelisin. npm install @react-navigation/native ilk bunu kuruyoruz sonra da npm install @react-navigation/native-stack bunu kurmamız lazım. Daha sonra da ek olarak npx expo install react-native-screens react-native-safe-area-context bunu da kurmamız lazım
+
+  //react native cross platformdur ve çalışma mantığı işletim sistemi üzerine kurulu js motoru tarafından direk kodlar iletilir işletim sistemine. Yani arada bir köpri var gibi düşünebilirsin. Native de ise uygulama da bir aksiyon aldığında direk işletim sistemine gider ve orada derlenir
   
   const message="Javascript";
   const courses = [
