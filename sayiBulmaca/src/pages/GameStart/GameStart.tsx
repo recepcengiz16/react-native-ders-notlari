@@ -8,7 +8,7 @@ export default function GameStart(): React.JSX.Element {
     <View style={styles.container}>
       <Text>Sayı Tahmin Uygulaması</Text>
       <View style={styles.card}>
-        <TextInput style={styles.input} keyboardType='number-pad' />
+        <TextInput style={styles.input} keyboardType='number-pad' maxLength={2} />
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonContainer}>
             <CustomButton>Temizle</CustomButton>
