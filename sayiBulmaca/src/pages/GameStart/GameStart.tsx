@@ -4,6 +4,15 @@ import styles from "./GameStart.style";
 import CustomButton from '../../components/CustomButton';
 
 export default function GameStart(): React.JSX.Element {
+
+  const resetHandler = () => {
+
+  }
+
+  const confirmHandler = () => {
+    
+  }
+
   return (
     <View style={styles.container}>
       <Text>Sayı Tahmin Uygulaması</Text>
@@ -11,10 +20,10 @@ export default function GameStart(): React.JSX.Element {
         <TextInput style={styles.input} keyboardType='number-pad' maxLength={2} />
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonContainer}>
-            <CustomButton>Temizle</CustomButton>
+            <CustomButton onPress={resetHandler}>Temizle</CustomButton>
           </View>
           <View style={styles.buttonContainer}>
-            <CustomButton>Onayla</CustomButton>
+            <CustomButton onPress={confirmHandler}>Onayla</CustomButton>
           </View>
         </View>
       </View>
